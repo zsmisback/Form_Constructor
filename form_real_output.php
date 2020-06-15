@@ -32,27 +32,49 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
          
   while($row2 = $result2->fetch_assoc())
   {
-	  if($row2['options'] != "")
-	  {   $options = explode(",",$row2['options']);
-		  echo "$row2[tables]";
+	  if($row2['type'] == "text")
+	  {   
+        echo "<input type='text' class='form-control mb-4' name='$row2[name]' placeholder='$row2[placeholder]'>";
+	  }
+	  if($row2['type'] == "file")
+	  {
+	    echo "<input class='mb-4' type='file' name='$row2[name]' id='$row2[name]'>";
+	  }
+	  if($row2['type'] == "textarea")
+	  {
+	    echo "<textarea class='form-control mb-4' rows='5' name='$row2[name]' placeholder='$row2[placeholder]'></textarea>";
+	  }
+	  if($row2['type'] == "checkbox")
+	  {
+	    echo "<div class='form-check'>
+		     <input type='checkbox' class='form-check-input mb-4' name='$row2[name]' value='$row2[placeholder]'>$row2[placeholder]
+			 </div>";
+	  }
+	  if($row2['type'] == "select")
+	  {
+	    echo "<select class='form-control mb-4' name='$row2[name]'>";
+		 $options = explode(",",$row2['options']);
 		  foreach($options as $opts)
 		  {
 		       echo "<option value='$opts'>$opts</option>";
 		  }
-			   echo "</select>";
+              
+          echo "</select>";
 	  }
-	  else
+	  if($row2['type'] == "submit")
 	  {
-	  echo "$row2[tables]";
+	    echo "<button type='submit' class='btn btn-primary' name='$row2[name]' value='$row2[placeholder]'>$row2[placeholder]</button>";
 	  }
   }
         
-         echo "</form>
+         echo "<button type='submit' class='btn btn-primary'>Submit</button>
+		       </form>
 		       </div>";
 
 }	  
 
 ?>
+
 <html>
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">

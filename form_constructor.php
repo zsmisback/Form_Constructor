@@ -17,12 +17,18 @@
 <div class="container">
 <form method="get">
 <input class="form-control mb-4" type="text" name="input_number" placeholder="Enter a number"/>
-<button type="submit" id="loginuser" name="act" value="log" class="btn btn-primary btn-block mb-4">Submit</button>
+<button type="submit" id="loginuser" name='form_amount' class="btn btn-primary btn-block mb-4">Submit</button>
 </form>
 </div>
 <?php
 if($_SERVER["REQUEST_METHOD"] == "GET")
 {
+	if(empty($_GET['input_number']))
+	{
+		echo "Please enter a number";
+	}
+	else
+	{
   $inp_number = $_GET['input_number'];
   echo "<div class='container'>
         <form method ='post'>
@@ -33,24 +39,28 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
   for($i=1;$i<=$inp_number;$i++)
   {
   echo "<div class='row'>
-        <div class='col-md-4'>
-        <h3>Input Type:</h3>
+        <div class='col-md-3'>
+        <h6>Input Type:</h6>
         <select id='int_type' name='int_type[]' class='custom-select mb-3'>
 		<option value='text'>Text</option>
 		<option value='file'>File</option>
-		<option value='textbox'>Textbox</option>
+		<option value='textarea'>Textarea</option>
 		<option value='checkbox'>Checkbox</option>
 		<option value='select'>Select</option>
 		<option value='submit'>Submit</option>
 		</select>
 		</div>
-		<div class='col-md-4'>
-		<h3>Input Name:</h3>
+		<div class='col-md-3'>
+		<h6>Input Name:</h6>
 		<input class='form-control mb-4' type='text' name='the_name[]' placeholder='Please enter the name'/>
 		</div>
-		<div class='col-md-4'>
-		<h6>Input Placeholder/Select Options/Checkbox value:</h6>
-		<input class='form-control mb-4' type='text' name='the_placeholder[]' placeholder='Enter a placeholder/options/value'/>
+		<div class='col-md-3'>
+		<h6>Input Placeholder:</h6>
+		<input class='form-control mb-4 place' type='text' name='the_placeholder[]' placeholder='Enter a placeholder'/>
+		</div>
+		<div class='col-md-3'>
+		<h6>Input Options(Select Input type):</h6>
+		<input class='form-control mb-4 options' type='text' name='the_options[]' placeholder='Enter the options'/>
 		</div>
 		<br>
 		</div>";
@@ -59,9 +69,14 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 		echo "<button type='submit' id='loginuser' name='form'  class='btn btn-primary btn-block mb-4'>Submit</button>
               </form>
 			  </div>";
+	
+	}
 
 }
 ?>
+<script>
+
+</script>
 </body>
 
 </html>
