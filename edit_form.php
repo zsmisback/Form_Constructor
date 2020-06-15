@@ -3,7 +3,7 @@
 include ('connect.php');
 
 
-$sql = "SELECT DISTINCT form_name,common FROM form_constructor";
+$sql = "SELECT form_name,common FROM form_constructor GROUP BY form_name";
 $result = $conn->query($sql);
 	
 

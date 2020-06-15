@@ -69,6 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 		echo "<button type='submit' id='loginuser' name='form'  class='btn btn-primary btn-block mb-4'>Submit</button>
               </form>
 			  </div>";
+			  
 	
 	}
 

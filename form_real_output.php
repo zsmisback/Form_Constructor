@@ -19,7 +19,8 @@ while($row = $result->fetch_assoc())
 
 echo "</select>
       <input type='submit' name='form'/>
-	   </form>";
+	   </form>
+	   <a href='edit_form.php'><button class='btn btn-primary'>Edit</button></a>";
 	  
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -63,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	  }
 	  if($row2['type'] == "submit")
 	  {
-	    echo "<button type='submit' class='btn btn-primary' name='$row2[name]' value='$row2[placeholder]'>$row2[placeholder]</button>";
+	    echo "<button type='submit' class='btn btn-primary mb-4' name='$row2[name]' value='$row2[placeholder]'>$row2[placeholder]</button>";
 	  }
   }
         
