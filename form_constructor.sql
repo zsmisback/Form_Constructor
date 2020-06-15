@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2020 at 03:28 PM
+-- Generation Time: Jun 15, 2020 at 07:16 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -31,10 +31,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `form_constructor` (
   `id` int(255) NOT NULL,
   `form_name` varchar(255) NOT NULL,
-  `tables` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `placeholder` varchar(255) NOT NULL,
   `options` varchar(255) NOT NULL,
   `common` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `form_constructor`
+--
+
+INSERT INTO `form_constructor` (`id`, `form_name`, `type`, `name`, `placeholder`, `options`, `common`) VALUES
+(97, 'Cricket', 'text', 'infra|email', 'Please enter your email', '', 'w1ehkjwhu1'),
+(98, 'Cricket', 'select', '23', '', 'Egg,Bacon', 'w1ehkjwhu1');
 
 --
 -- Indexes for dumped tables
@@ -54,7 +64,7 @@ ALTER TABLE `form_constructor`
 -- AUTO_INCREMENT for table `form_constructor`
 --
 ALTER TABLE `form_constructor`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

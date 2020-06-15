@@ -3,7 +3,7 @@
 include ('connect.php');
 
 
-$sql = "SELECT * FROM form_constructor";
+$sql = "SELECT DISTINCT form_name,common FROM form_constructor";
 $result = $conn->query($sql);
 
 echo "<form method = 'post'>
